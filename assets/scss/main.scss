@@ -166,10 +166,11 @@ textarea {
    ========================================================================== */
 
  body {
-   background: #f4f4f4;
-   margin-top: 3.5em;
-   max-width: 100vw;
-   -ms-overflow-style: scrollbar;
+  margin-top: 3.5em;
+  max-width: 1065px;
+  margin: 0 auto;
+  width: 100%;
+  -ms-overflow-style: scrollbar;
  }
 
  /* Box Model */
@@ -184,7 +185,7 @@ textarea {
 
  body, input, select, textarea {
    color: #333333;
-   font-family: "Source Sans Pro", Helvetica, sans-serif;
+   font-family: sans-serif;
    line-height: 1.75em;
  }
 
@@ -1243,15 +1244,9 @@ textarea {
 
  #site-header {
    background-color: #ffffff;
-   border-bottom: solid 1px rgba(160, 160, 160, 0.3);
-   -webkit-box-shadow:  0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
-   -moz-box-shadow:  0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
-   -ms-box-shadow:  0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
-   -o-box-shadow:  0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
-   box-shadow: 0 3px 6px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
    height: 3.5em;
    line-height: 3.5em;
-   position: fixed;
+   position: sticky;
    margin-bottom: 3.5em;
    top: 0;
    width: 100%;
@@ -1259,10 +1254,10 @@ textarea {
    a {
      border: 0;
      border-left: 1px solid rgba(160, 160, 160, 0.3);
-     font-family: "Raleway", Helvetica, sans-serif;
-     font-size: 0.7em;
+     font-family: sans-serif;
+     font-size: 0.8em;
      font-weight: 400;
-     letter-spacing: 0.25em;
+     letter-spacing: 0.05em;
      margin: 0;
      padding: 0 1.5em;
      text-transform: uppercase;
@@ -1365,41 +1360,6 @@ textarea {
        order: 3;
        @include for-laptop-up {
          display: none;
-       }
-     }
-   }
-   .nav-title {
-     align-items: center;
-     display: flex;
-     flex-grow: 1;
-     margin: 0;
-     a {
-       border: 0;
-       font-size: 0.35em;
-       font-weight: 800;
-       margin-left: 1.5em;
-       opacity: 1;
-       padding: 0;
-       img {
-        height: 4.8em;
-        width: 12.6em;
-       }
-     }
-     @include for-desktop-up {
-       flex-grow: 0;
-       &:after {
-         background: rgba(160, 160, 160, 0.3);
-         content: '';
-         display: block;
-         height: 56px;
-         margin-left: 1.5em;
-         width: 1px;
-       }
-       a {
-         min-width: 12.5em;
-         img {
-          margin-top: -0.2em;
-        }
        }
      }
    }
@@ -1517,12 +1477,9 @@ textarea {
  /* Intro */
 
  #site-intro {
-   align-items: center;
-   display: flex;
-   flex-direction: column;
-   margin-top: 0.5em;
-   padding: 1em;
-   text-align: center;
+    display: flex;
+    flex-direction: row;
+    padding: 1em 0em;
    a {
      border: 0;
    }
@@ -1530,6 +1487,7 @@ textarea {
      opacity: 0.6;
    }
    header{
+    display: flex;
      h1 {
        font-size: 1.25em;
        margin-bottom: 0;
