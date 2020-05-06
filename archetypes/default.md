@@ -1,9 +1,10 @@
-+++
-author = ""
-title = ""
-date = ""
-description = ""
-tags = [""]
-categories = [""]
-images = [""]
-+++
+---
+date: "{{ .Date }}"
+title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
+authors: []
+categories:
+  -
+tags:
+  -
+draft: true
+---

@@ -1,14 +1,12 @@
+{{- .Scratch.Set "title-h2" "true" -}}
 <article class="post">
-  {{ .Render "header" }}
-  <section id="socnet-share">
-    {{ partial "share-buttons" . }}
-  </section>
-  {{ .Render "featured" }}
+  {{ .Render "header-single" }}
   <div class="content">
     {{ .Content }}
   </div>
   <footer>
     {{ .Render "stats" }}
+    {{ partial "plugins" . }}
   </footer>
 </article>
 {{ .Render "comments" }}

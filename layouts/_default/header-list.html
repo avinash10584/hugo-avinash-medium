@@ -1,0 +1,38 @@
+
+{{- $.Scratch.Set "authorID" "" -}}
+{{- if eq .Kind "taxonomy" -}}
+  {{- $.Scratch.Set "authorID" .Data.Term -}}
+{{- else if eq .Kind "taxonomyTerm" -}}
+  {{- $.Scratch.Set "authorID" .Name -}}
+{{- else if eq .Kind "page" -}}
+  {{- $.Scratch.Set "authorID" ( index .Params.authors 0 ) -}}
+{{- end -}}
+
+{{- $lang := ( .Params.lang | default .Lang ) -}}
+{{- $author := ( index $.Site.Data.authors ( $.Scratch.Get "authorID" ) ) -}}
+{{- $i18nAuthor := ( index $author $lang ) -}}
+{{- $name := ( or $i18nAuthor.name $author.name ) -}}
+{{- $avatar := ( $author.avatar ) -}}
+
+<header>
+  <div class="title">
+    <h5><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
+    {{ with .Description }}
+      <p>{{ . }}</p>
+    {{ end }}
+  </div>
+  <div class="meta-wrapper">
+  <div class="meta">
+    
+    <span class="profile_outer circle">
+      <span class="author circle" style="background-image: url('{{ $avatar }}');background-size: 100%;"></span>
+    </span>  
+    <time class="published" datetime="{{ .Date }}">
+      {{ default (i18n "date_format") | .Date.Format }}
+    </time>
+    {{ if .Site.Params.ReadingTime }}
+      <span>{{ i18n "postreadingtime" .ReadingTime }}</span>
+    {{ end }}
+  </div> 
+  </div>
+</header>

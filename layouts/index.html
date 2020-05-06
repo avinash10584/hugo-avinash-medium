@@ -1,13 +1,12 @@
 <!doctype html>
 <html lang="{{ .Page.Language | default "en" }}">
   {{ partial "head" . }}
-  <body>
+  <body id="home-page">
     {{ partial "site-intro" . }}
     {{ partial "site-header" . }}
     <div id="wrapper">
       <main id="site-main">
-        {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
-        {{ range $paginator.Pages }}
+        {{ range .Paginator.Pages }}
           {{ .Render "content-list" }}
         {{ end }}
         {{ partial "pagination" . }}

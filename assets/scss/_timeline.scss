@@ -1,0 +1,127 @@
+.timeline {
+    display: flex;
+    flex-direction: column;
+    .tag:not(body).is-medium {
+        font-size: 1rem;
+    }
+    .tag:not(body).is-primary {
+        background-color: #7f00ff;
+        color: #fff;
+    }
+    .tag:not(body) {
+        align-items: center;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        color: #4a4a4a;
+        display: inline-flex;
+        font-size: .75rem;
+        height: 2em;
+        justify-content: center;
+        line-height: 1.5;
+        padding-left: .75em;
+        padding-right: .75em;
+        white-space: nowrap;
+    }
+
+    .timeline-item {
+        display: flex;
+        display: -webkit-flex;
+        position: relative;
+        margin-left: 2em;
+        padding-bottom: 2em;
+
+        &.is-centered {
+            align-items: center;
+        }
+    }
+
+    .heading {
+        display: block;
+        font-size: 11px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+    }
+
+    .has-text-weight-bold {
+        font-weight: 700!important;
+    }
+    .has-text-info {
+        color: #3298dc!important;
+    }
+    
+}
+
+.timeline.is-centered .timeline-item:nth-of-type(2n) {
+    align-self: flex-start;
+    flex-direction: row-reverse;
+    margin-left: 0;
+    margin-right: 2em;
+}
+.timeline .timeline-item:nth-of-type(2n):before {
+    right: -.5px;
+    left: auto;
+}
+.timeline .timeline-item:before {
+    content: "";
+    background-color: #dbdbdb;
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: -.5px;
+    top: 0;
+}
+.timeline.is-centered .timeline-item:nth-of-type(odd):before {
+    content: "";
+    background-color: #dbdbdb;
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.timeline .timeline-item .timeline-content {
+    padding: 1em 0 0 2em;
+}
+.timeline .timeline-item .timeline-marker {
+    position: absolute;
+    background: #dbdbdb;
+    border: 1px solid #dbdbdb;
+    border-radius: 100%;
+    content: "";
+    display: block;
+    height: 12px;
+    transform: translateX(-50%);
+    top: 1.2rem;
+    width: 12px;
+}
+
+.timeline .timeline-item .timeline-marker.is-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    background: #dbdbdb;
+    border: 1px solid #dbdbdb;
+    border-radius: 100%;
+    padding: .5rem;
+}
+
+.timeline.is-centered .timeline-header {
+    display: flex;
+    width: 100%;
+    align-self: center;
+}
+.timeline .timeline-header {
+    width: 4em;
+    min-width: 4em;
+    max-width: 8em;
+    word-wrap: normal;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+

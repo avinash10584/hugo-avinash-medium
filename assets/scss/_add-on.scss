@@ -1,0 +1,186 @@
+
+/* ----------------------------------Add-Ons--------------------------------- */
+
+/* Format reCaptcha */
+
+.g-recaptcha {
+    margin: -0.25em 0 0.25em 0;
+  }
+  
+  /* Fancybox */
+  
+  .fancybox {
+    background: #fff;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin: 10px auto;
+    max-width: 85%;
+    padding: .5em .5em 0 .5em;
+    width: fit-content;
+  
+    a {
+      border: 0;
+    }
+  
+    img {
+      max-width: 100%;
+    }
+  
+    .caption {
+      color: #777;
+      font-size: 0.8em;
+      font-style: italic;
+      text-align: center;
+    }
+  }
+  
+  /* Staticman Comments */
+  $avatar-size: 3.25em;
+  $avatar-rsep: 1em;
+  $comment-vsep: 2.5em;
+  $comment-content-vsep: 1.5em;
+  
+  .post-comment {
+    position: relative;
+    margin: $comment-vsep 0;
+    font-size: .8em;
+  
+    /* Comment replies' additional left margin */
+    &.post-comment-reply {
+      margin-left: 2em;
+  
+      /* Display Font Awesome '↷' to signify reply target */
+      .post-comment-author::after {
+        font-family: 'Font Awesome 5 Free';
+        content: '\f064';
+        margin: 0 0.3em;
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 900;
+      }
+    }
+  
+    .post-comment-avatar {
+      float: left;
+      width: $avatar-size;
+      height: $avatar-size;
+      margin: 0 $avatar-rsep 0 0;
+    }
+  
+    .post-comment-author-container {
+      /* -ve margin botton so that timestamp and author aren't too far */
+      margin-bottom: -0.5em;
+  
+      .post-comment-author {
+        display: inline-block;
+        margin: 0 0 0;
+        font-size: 1.25em;
+        line-height: 0;
+  
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+      }
+    }
+  
+    .post-comment-timestamp {
+      font-size: .8em;
+  
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  
+    .post-comment-content {
+      margin: $comment-content-vsep 0 0 $avatar-size + $avatar-rsep;
+  
+      >figure,
+      >ol,
+      >p,
+      >table,
+      >ul {
+        margin-bottom: 1.5em;
+      }
+    }
+  
+    .post-comment-reply-btn-container {
+      margin: $comment-content-vsep 0 $comment-content-vsep $avatar-size + $avatar-rsep;
+  
+      /* Display Font Awesome '↶' to signify reply target */
+      .post-comment-reply-btn {
+        font-size: .6rem;
+  
+        &::before {
+          font-family: 'Font Awesome 5 Free';
+          content: '\f3e5';
+          margin: 0 0.6em 0 0;
+          display: inline-block;
+          vertical-align: middle;
+          font-weight: 900;
+        }
+      }
+    }
+  }
+  
+  /* Comment form */
+  .post-new-comment {
+  
+    /* Disable the form when it has just been submitted */
+    &.loading {
+      opacity: 0.5;
+    }
+  
+    /* Post reply notice with vertical align middle for consistent output */
+    .post-reply-notice {
+      .post-comment-avatar {
+        width: 2em;
+        height: 2em;
+        margin: 0 .6em;
+      }
+  
+      /* Display close button 'x' to clear reset reply target */
+      .post-reply-close-btn {
+        margin: 0 .5em;
+        padding: unset;
+        border: none;
+        vertical-align: middle;
+  
+        &:hover {
+          border: none;
+        }
+  
+        &:after {
+          content: '\2716';
+        }
+      }
+  
+      .post-reply-arrow::after {
+        font-family: 'Font Awesome 5 Free';
+        content: '\f064';
+        display: inline-block;
+        vertical-align: middle;
+        font-weight: 900;
+      }
+  
+      .post-reply-name {
+        vertical-align: middle;
+      }
+    }
+  
+    /* Format reCaptcha */
+    .g-recaptcha {
+      margin: 0 0 0.25em;
+    }
+  
+    /* Buttons */
+    .button {
+      margin: 0.25em 0;
+    }
+  }
+  
+  

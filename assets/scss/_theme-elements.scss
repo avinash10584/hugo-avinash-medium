@@ -1,0 +1,202 @@
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+   body {
+    margin-top: 3.5em;
+    max-width: 55em;
+    margin: 0 auto;
+    width: 100%;
+    -ms-overflow-style: scrollbar;
+  }
+  
+  /* Box Model */
+  
+  *,
+  *:before,
+  *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  
+  body,
+  input,
+  select,
+  textarea {
+    color: #333333;
+    font-family: sans-serif;
+    line-height: 1.75em;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: color .2s ease, border-bottom-color 0.2s ease;
+    -moz-transition: color .2s ease, border-bottom-color 0.2s ease;
+    -ms-transition: color .2s ease, border-bottom-color 0.2s ease;
+    -o-transition: color .2s ease, border-bottom-color 0.2s ease;
+    transition: color .2s ease, border-bottom-color 0.2s ease;
+  
+    &:before {
+      -webkit-transition: color ease;
+      -moz-transition: color ease;
+      -ms-transition: color ease;
+      -o-transition: color ease;
+      transition: color ease;
+    }
+  
+    &:hover {
+      border-bottom-color: transparent;
+      color: $accent-color;
+       > svg {
+        fill: $accent-color;
+       }
+    }
+  }
+
+  
+blockquote {
+    border-left: solid 4px rgba(160, 160, 160, 0.3);
+    font-style: italic;
+    margin: 0 2em;
+    padding: 0.5em 0 0.5em 2em;
+  
+    p {
+      margin-bottom: 0;
+    }
+  }
+  
+  
+  hr {
+    border: 0;
+    border-bottom: solid 1px rgba(160, 160, 160, 0.3);
+    margin: 2em 0;
+  }
+  
+  /* Button */
+  
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  .button {
+    border: solid 1px rgba(160, 160, 160, 0.3);
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Raleway", Helvetica, sans-serif;
+    font-size: 0.6em;
+    font-weight: 800;
+    height: 3.8em;
+    letter-spacing: 0.25em;
+    line-height: 3.8em;
+    margin: auto;
+    padding: 0 1.7em;
+    -moz-transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+    -ms-transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+    text-align: center;
+    text-transform: uppercase;
+    width: fit-content;
+    border-radius: 2px;
+  
+    &:hover {
+      background-color: $accent-color-dark !important;
+      background-image: linear-gradient(-180deg,$accent-color-dark,$accent-color 90%);
+      box-shadow: $box-shadow-3d;
+      color: #fff !important;
+
+      &:active {
+        background-color: rgba(46, 186, 174, 0.05);
+      }
+    }
+  }
+  
+  /* Form */
+  
+  label {
+    color: #3c3b3b;
+    display: block;
+    font-size: 0.9em;
+    font-weight: 700;
+  }
+  
+  input,
+  select,
+  textarea {
+    background: rgba(160, 160, 160, 0.075);
+    border: solid 1px rgba(160, 160, 160, 0.3);
+    outline: 0;
+    margin: .25em 0;
+    padding: 0 1em;
+    width: 100%;
+  
+    &:hover {
+      border-color: $accent-color;
+      -webkit-transition: border-color 0.3s ease-in-out;
+      -moz-transition: border-color 0.3s ease-in-out;
+      -ms-transition: border-color 0.3s ease-in-out;
+      -o-transition: border-color 0.3s ease-in-out;
+      transition: border-color 0.3s ease-in-out;
+    }
+  
+    &:focus,
+    &:active {
+      border: solid 1px $accent-color;
+    }
+  }
+  
+  input,
+  select {
+    height: 2.75em;
+  }
+  
+  textarea {
+    height: 5em;
+  }
+  
+  ::-webkit-input-placeholder,
+  :-moz-placeholder,
+  ::-moz-placeholder,
+  :-ms-input-placeholder,
+  .formerize-placeholder {
+    color: #aaaaaa;
+    opacity: 1;
+  }
+  
+  table,
+td,
+th {
+  border: 1px solid $color__border-table;
+}
+
+table {
+  width: 100%;
+  margin: 0 0 1.5em;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-width: 1px 0 0 1px;
+}
+
+caption,
+td,
+th {
+  font-weight: 400;
+  text-align: left;
+}
+
+th {
+  border-width: 0 1px 1px 0;
+  font-weight: 700;
+}
+
+td {
+  border-width: 0 1px 1px 0;
+}
+
+td,
+th {
+  padding: 0.375em;
+}

@@ -1,6 +1,6 @@
 <section id="site-intro" {{ if (and (.Site.Params.intro.hideWhenSingleColumn) (not (and .Page.IsHome .Site.Params.intro.alwaysOnHomepage))) }}class="hidden-single-column"{{ end }}>
  <header>
-    {{ with .Site.Params.intro.pic }}<a href="{{ "/" | relLangURL}}"><img src="{{ .src | relURL }}" class="{{ .shape }}" width="{{ .width }}" alt="{{ .alt }}" /></a>{{ end }}
+    {{ with .Site.Params.intro.pic }}<a href="{{ "/" | relLangURL}}"><img src="{{ .src | relURL }}" class="logo {{ .shape }}" width="{{ .width }}" alt="{{ .alt }}" /></a>{{ end }}
     {{ with .Site.Params.intro.header }}<h1>{{ . | safeHTML }}</h1>{{ end }}
   </header>
   {{ if or (.Site.Params.intro.rssIntro) (.Site.Params.intro.socialIntro) }}

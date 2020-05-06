@@ -1,0 +1,130 @@
+
+/* Share Button */
+
+.share-btn {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2);
+    color: #ffffff;
+    display: inline-block;
+    text-align: center;
+  
+    &:hover {
+      color: #ffffff !important;
+    }
+  
+    &:active {
+      position: relative;
+      top: 2px;
+      box-shadow: none;
+      color: #e2e2e2;
+      outline: none;
+    }
+  }
+  
+  /* Share Branding */
+  
+  .share-btn {
+    &.twitter {
+      background: #55acee;
+  
+      &:hover {
+        background: #4c9ad6;
+      }
+    }
+  
+    &.google-plus {
+      background: #dd4b39;
+  
+      &:hover {
+        background: #c64333;
+      }
+    }
+  
+    &.facebook {
+      background: #3B5998;
+  
+      &:hover {
+        background: #2f4779;
+      }
+    }
+  
+    &.linkedin {
+      background: #4875B4;
+  
+      &:hover {
+        background: #4069a2;
+      }
+    }
+  
+    &.stumbleupon {
+      background: #EB4823;
+  
+      &:hover {
+        background: #d3401f;
+      }
+    }
+  
+    &.pinterest {
+      background: #BD081C;
+  
+      &:hover {
+        background: #AD0000;
+      }
+    }
+  
+    &.reddit {
+      background: #ff5700;
+  
+      &:hover {
+        background: #e54e00;
+      }
+    }
+  
+    &.email {
+      background: #444444;
+  
+      &:hover {
+        background: #363636;
+      }
+    }
+  }
+  
+  
+#share-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  
+    @include for-tall {
+      justify-content: flex-start;
+    }
+  
+    &.flyout-menu {
+      right: -177px;
+      padding: 1em;
+  
+      h1,
+      a {
+        margin: 0 .25em;
+  
+        @include for-tall {
+          margin: 0 .25em .75em 0;
+        }
+      }
+  
+      a p {
+        visibility: hidden;
+      }
+  
+      .share-btn {
+        height: 50px;
+        width:50px;
+         
+        i {
+          font-size: 1.5em;
+        }
+      }
+    }
+  }

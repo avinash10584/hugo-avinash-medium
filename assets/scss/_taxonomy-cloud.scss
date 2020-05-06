@@ -1,0 +1,24 @@
+.widget-taxonomy_cloud {
+  .taxonomy-cloud {
+    justify-content: flex-end;
+
+    font-size: 0.875em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    li {
+      max-width: 100%;
+      padding: 0 1.5em 0.5em 0;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  li {
+    padding: 0 0 0.4em 0.8em;
+  }
+
+}

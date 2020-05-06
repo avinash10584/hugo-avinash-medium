@@ -4,7 +4,7 @@
       <header>
         <h1>{{ i18n "recent_posts" }}</h1>
       </header>
-      {{ range first (.Site.Params.sidebar.postAmount | default 5) (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+      {{ range first (.Site.Params.sidebar.postAmount | default 5) (.Paginator.Pages)}}
       <article class="mini-post">
         <section>
           {{ .Render "featured" }}
@@ -15,7 +15,7 @@
         </header>
       </article>
       {{ end }}
-      {{ if ge (len (where site.RegularPages "Type" "in" site.Params.mainSections)) (.Site.Params.sidebar.postAmount | default 5) }}
+      {{ if ge (len (.Paginator.Pages)) (.Site.Params.sidebar.postAmount | default 5) }}
         <footer>
           <a href="{{ with .Site.Params.viewMorePostsLink }}{{ . | relLangURL }}{{ else }}{{ "post" | relLangURL }}{{ end }}" class="button">{{ i18n "see_more" }}</a>
         </footer>
@@ -23,6 +23,8 @@
     </section>
   {{ end }}
 
+  {{ partial "taxonomy_cloud" . }}
+  
   {{ if .Site.Params.sidebar.categories }}
     {{ if ne ($.Scratch.Get "showCategories") false }}
       <section id="categories">

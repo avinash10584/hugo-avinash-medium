@@ -21,11 +21,6 @@
     {{- end -}}
   {{- end -}}
 {{- else -}}
-  {{- if .Site.Params.highlightjs -}}
-    {{- $hljs := resources.Get "js/highlight.pack.js" -}}
-    <script src="{{ $hljs.RelPermalink }}"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-  {{- end -}}
   {{- range .Site.Params.jsFiles -}}
     {{- $jsSlice := slice -}}
     {{- if eq . "default" -}}

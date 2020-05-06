@@ -2,9 +2,9 @@
 <html lang="{{ .Page.Language | default "en" }}">
   {{ partial "head" . }}
   <body>
+    {{ partial "site-intro" . }}
     {{ partial "site-header" . }}
     <div id="wrapper">
-      {{ partial "site-intro" . }}
       <main id="site-main">
         {{ if .Site.Params.categoriesByCount }}
           {{ $.Scratch.Set "categories" .Data.Terms.ByCount }}
@@ -33,8 +33,8 @@
       </main>
       {{ $.Scratch.Set "showCategories" false }}
       {{ partial "site-sidebar" . }}
-      {{ partial "site-footer" . }}
-      {{ partial "scripts" . }}
     </div>
+    {{ partial "site-footer" . }}
+    {{ partial "scripts" . }}
   </body>
 </html>
