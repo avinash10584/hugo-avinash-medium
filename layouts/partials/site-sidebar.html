@@ -23,8 +23,6 @@
     </section>
   {{ end }}
 
-  {{ partial "taxonomy_cloud" . }}
-  
   {{ if .Site.Params.sidebar.categories }}
     {{ if ne ($.Scratch.Get "showCategories") false }}
       <section id="categories">
