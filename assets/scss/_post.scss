@@ -3,6 +3,10 @@
     background: #fff;
     margin: 0 auto;
     max-width: 50em;
+    font-family: $font-family__post;
+    font-size: 1.1rem;
+    line-height: 1.84;
+    color: rgba(0, 0, 0, .8);
     
     &:not(:first-of-type) {
       padding-top: 2.5em;
@@ -20,7 +24,7 @@
       h1, h2, h3, h4, h5 {
         margin: 0;
         letter-spacing: -.045em;
-        font-family: Kievit;
+        font-family: $font-family__post-header;
       }
 
       div {
