@@ -27,7 +27,7 @@
       {{- $size := ( add $minSize ( mul $sizeStep ( sub $count $minCount ) ) ) -}}
 
       <li>
-        <a href='{{ .Page.RelPermalink }}' style='font-size:{{ $size }}em'>
+        <a  style='font-size:{{ $size }}em'>
           {{- .Page.Title -}}
         </a>
       </li>
