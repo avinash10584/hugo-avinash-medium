@@ -4,7 +4,7 @@
 
    body {
     margin-top: 3.5em;
-    max-width: 55em;
+    max-width: 58em;
     margin: 0 auto;
     width: 100%;
     -ms-overflow-style: scrollbar;
@@ -199,4 +199,12 @@ td {
 td,
 th {
   padding: 0.375em;
+}
+
+section, article {
+  -webkit-transition: color .2s ease, border-bottom-color 0.2s ease;
+  -moz-transition: color .2s ease, border-bottom-color 0.2s ease;
+  -ms-transition: color .2s ease, border-bottom-color 0.2s ease;
+  -o-transition: color .2s ease, border-bottom-color 0.2s ease;
+  transition: color .2s ease, border-bottom-color 0.2s ease;
 }

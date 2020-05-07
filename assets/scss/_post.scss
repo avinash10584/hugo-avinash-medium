@@ -1,7 +1,7 @@
 
 .post {
     background: #fff;
-    margin: 0;
+    margin: 0 auto;
     max-width: 50em;
     
     &:not(:first-of-type) {
@@ -20,6 +20,7 @@
       h1, h2, h3, h4, h5 {
         margin: 0;
         letter-spacing: -.045em;
+        font-family: Kievit;
       }
 
       div {
