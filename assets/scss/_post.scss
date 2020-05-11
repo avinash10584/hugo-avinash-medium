@@ -1,225 +1,147 @@
-
 .post {
-    background: #fff;
-    margin: 0 auto;
-    max-width: 50em;
-    font-family: $font-family__post;
-    font-size: 1.1rem;
-    line-height: 1.84;
-    color: rgba(0, 0, 0, .8);
-    
-    &:not(:first-of-type) {
-      padding-top: 2.5em;
+  background: #fff;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  max-width: 52em;
+  line-height: 1.84;
+  color: rgba(0, 0, 0, .8);
+  padding-top: 0.7em;
+
+  &.content-list {
+    max-width: 40em;
+  }
+
+  &:not(:first-of-type) {
+    padding-top: 2.5em;
+  }
+
+  >header {
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      margin: 0;
+      letter-spacing: -.045em;
     }
-  
-    >header {
-      margin-top: 0.3em;
-      text-align: center;
-      word-break: break-word;
-      display: flex;
-      justify-content: space-between;
-      text-align: left;
-      flex-direction: column;
-  
-      h1, h2, h3, h4, h5 {
-        margin: 0;
-        letter-spacing: -.045em;
-        font-family: $font-family__post-header;
+
+    .title {
+      font-size: 1.1em;
+      display: block;
+
+      &.header-list {
+        width: 95%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
 
-      div {
-        padding: 0 0 0.5em 0;
-      }
-  
-      p {
-        line-height: 1.2em;
-        font-size: 0.8em;
-        opacity: .6;
-        letter-spacing: 0em;
-        margin: 0;
-        font-family: sans-serif;
-      }
-  
-      .title {
-        font-size: 1.1em;
-        width: 100%;
-
-        &.content-single {
-
-          h2{
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-weight: normal;
-          }
+      &.header-single {
+        margin: 0 0 1em;
+        a {
+          font-family: $font-family__post-header;
         }
       }
-  
-    .meta-wrapper  {
+    }
+
+    .description {
+
+      font-size: 15px;
+      width: 85%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      opacity: 0.6;
+      margin: 0.3em 0;
+    }
+
+    .meta-wrapper {
       display: flex;
       padding-bottom: 0;
-      .meta {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        flex-grow: 1;
-  
-        :not(:first-child) {
-          margin-left: 1em;
-        }
-        .profile_outer {
-          width: 40px;
-          height: 40px;
-          background: $accent-color;
-          display: flex;
-          align-items: center;
-        }
+      font-size: 14px;
+      flex-direction: column;
+      letter-spacing: -.01em;
 
-        .published {
-          font-family: "Raleway", Helvetica, sans-serif;
-          font-size: 0.7em;
-          font-weight: 800;
-          letter-spacing: 0.25em;
-          text-transform: uppercase;
-        }
-  
+      .meta-date-reading-time {
+        font-family: $font-family__post;
+        padding: 0.6em 0;
+      }
+
+      .author-tag-info {
+        display: flex;
+        align-items: center;
+
         .author {
           background-size: 100% 100%;
-          width: 37px;
-          height: 37px;
-          display: block;
-          margin: auto;
+          width: 42px;
+          height: 42px;
         }
-        span,
-        .author,
-        .format {
-          font-family: "Raleway", Helvetica, sans-serif;
-          font-size: 0.6em;
-          letter-spacing: 0.25em;
-          text-transform: uppercase;
-        }
-      }
-    }
-    }
-  
-    a {
-      &.image {
-        border: 0;
-        display: block;
-        overflow: hidden;
-        max-height: 260px;
-        border-radius: 2px;
-        margin-bottom: 0.5em;
 
-        &:hover {
-          box-shadow: $box-shadow-3d; 
-          img {
-            -webkit-transform: scale(1.05);
-            -moz-transform: scale(1.05);
-            -ms-transform: scale(1.05);
-            -o-transform: scale(1.05);
-            transform: scale(1.05);
-          }
-        }
-  
-        img {
-          -webkit-transition: -webkit-transform 0.2s ease-out;
-          -moz-transition: -moz-transform 0.2s ease-out;
-          -ms-transition: -ms-transform 0.2s ease-out;
-          -o-transition: -ms-transform 0.2s ease-out;
-          transition: transform 0.2s ease-out;
-          width: 100%;
-        }
-      }
-    }
-  
-    .content{
-      margin-top: 1.5em;
-    }
-
-    >footer {
-      display: flex;
-      flex-direction: row;
-  
-      .stats {
-        display: flex;
-        cursor: default;
-        flex-grow: 1;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-  
-        li {
+        .meta-tags {
           display: flex;
-          align-items: center;
-          font-family: "Font Awesome 5 Free";
-          font-weight: 900;
-  
-          &:hover,
-          &:active {
-            ul {
-              li {
-                visibility: visible;
-                opacity: 1;
-                line-height: 1;
-                width: auto;
-              }
-            }
+          flex-direction: column;
+          flex-grow: 1;
+
+          padding: .5em 1em;
+          line-height: 1.4em;
+
+          .stats-list {
+            opacity: 0.6;
           }
-  
-          &.categories {
-            &:before {
-              content: "\f07b";
-              width: 20px;
-            }
-          }
-  
-          &.tags {
-            margin-left: 1.2em;
-            &:before {
-              content: "\f02c";
-              width: 20px;
-            }
-          }
-  
-          ul {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0;
-            padding: 0;
-  
-            li {
-              visibility: visible;
-              font-family: sans-serif;
-              font-size: 0.6em;
-              font-weight: 400;
-              letter-spacing: 0.15em;
-              line-height: 0;
-              margin: 0;
-              width: 0;
-              opacity: 0;
-              
-              margin-left: .6em;
-              -webkit-transition: visibility 0s, opacity 0.5s linear, line-height 0.5s linear, margin 0.5s linear, width 0.5s linear;
-              -moz-transition: visibility 0s, opacity 0.5s linear, line-height 0.5s linear, margin 0.5s linear, width 0.5s linear;
-              -ms-transition: visibility 0s, opacity 0.5s linear, line-height 0.5s linear, margin 0.5s linear, width 0.5s linear;
-              -o-transition: visibility 0s, opacity 0.5s linear, line-height 0.5s linear, margin 0.5s linear, width 0.5s linear;
-              transition: visibility 0s, opacity 0.5s linear, line-height 0.5s linear, margin 0.5s linear, width 0.5s linear;
-              text-transform: uppercase;
-  
-              &:nth-child(-n+3) {
-                visibility: visible;
-                opacity: 1;
-                width: auto;
-                line-height: 1;
-              }
-  
-              a {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-              }
-            }
-          }
+        }
+
+        .button {
+          margin: -1.5em 1em 0;
+          font-size: 11px;
+          border: 1px solid #03a87c !important;
         }
       }
     }
   }
+
+  a {
+    &.image {
+      border: 0;
+      display: block;
+      overflow: hidden;
+      max-height: 280px;
+      border-radius: 4px;
+      margin-bottom: 0.5em;
+
+      &:hover {
+        box-shadow: $box-shadow-3d;
+
+        img {
+          -webkit-transform: scale(1.05);
+          -moz-transform: scale(1.05);
+          -ms-transform: scale(1.05);
+          -o-transform: scale(1.05);
+          transform: scale(1.05);
+        }
+      }
+
+      img {
+        -webkit-transition: -webkit-transform 0.2s ease-out;
+        -moz-transition: -moz-transform 0.2s ease-out;
+        -ms-transition: -ms-transform 0.2s ease-out;
+        -o-transition: -ms-transform 0.2s ease-out;
+        transition: transform 0.2s ease-out;
+        width: 100%;
+      }
+    }
+  }
+
+  .content {
+    font-family: $font-family__post;
+    margin-top: 1.5em;
+  }
+
+  >footer {
+    display: flex;
+    flex-direction: row;
+  }
+}

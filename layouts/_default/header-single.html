@@ -15,21 +15,24 @@
 {{- $avatar := ( $author.avatar ) -}}
 
 <header>
-  <div class="title content-single">
+  <div class="title header-single">
     <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
   </div>
   <div class="meta-wrapper">
-  <div class="meta">
-    
-    <span class="profile_outer circle">
-      <span class="author circle" style="background-image: url('{{ $avatar }}');background-size: 100%;"></span>
-    </span>  
-    <time class="published" datetime="{{ .Date }}">
-      {{ default (i18n "date_format") | .Date.Format }}
-    </time>
-    {{ if .Site.Params.ReadingTime }}
-      <span>{{ i18n "postreadingtime" .ReadingTime }}</span>
-    {{ end }}
-  </div> 
-  </div>
+  <div class="meta-date-reading-time">
+      <time class="published" datetime="{{ .Date }}">
+        {{ default (i18n "date_format") | .Date.Format }}
+      </time>
+      {{ if .Site.Params.ReadingTime }}
+        <span> · {{ i18n "postreadingtime" .ReadingTime }}</span>
+      {{ end }}
+    </span>
+  </div>  
+  <span class="author-tag-info">
+    <span class="author circle" style="background-image: url('{{ $avatar }}');background-size: 100%;"></span>
+    <div class="meta-tags">
+      <span>by {{ $name.display }}</span>
+    </div>
+  </span>
+</div>
 </header>

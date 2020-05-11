@@ -3,8 +3,8 @@
 [postreadingtime]
   one = "1 minute read"
   other = "{{ .Count }} minute read"
-[recent_posts]
-  other = "Recent posts"
+[recommended]
+  other = "Recommended"
 [see_more]
   other = "See more"
 [read_more]

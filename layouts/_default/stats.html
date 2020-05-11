@@ -1,40 +1,28 @@
-<ul class="stats">
+<span class="stats">
   {{ if isset .Params "categories" }}
     {{ $categoriesLen := len .Params.categories }}
     {{ if gt $categoriesLen 0 }}
-      <li class="categories">
-        <ul>
+      <span class="categories">
+        <span>
           {{ range $k, $v := .Params.categories }}
             {{ $url := printf "categories/%s" (. | urlize | lower) }}
-            <li><a class="article-category-link" href="{{ $url | absLangURL }}">{{ . }}</a></li>
+            <span><a class="article-category-link" href="{{ $url | absLangURL }}">{{ . }}</a></span>
           {{ end }}
-        </ul>
-      </li>
+        </span>
+      </span>
     {{ end }}
-  {{ else }}
-    <li class="categories">
-      <ul>
-        <li>None</li>
-      </ul>
-    </li>
   {{ end }}
   {{ if isset .Params "tags" }}
     {{ $tagsLen := len .Params.tags }}
     {{ if gt $tagsLen 0 }}
-      <li class="tags">
-        <ul>
+      <span class="tags">
+        <span>
           {{ range $k, $v := .Params.tags }}
             {{ $url := printf "tags/%s" (. | urlize | lower) }}
-            <li><a class="article-category-link" href="{{ $url | absLangURL }}">{{ . }}</a></li>
+            <span><a class="article-category-link" href="{{ $url | absLangURL }}">{{ . }}</a></span>
           {{ end }}
-        </ul>
-      </li>
+        </span>
+      </span>
     {{ end }}
-  {{ else }}
-    <li class="tags">
-      <ul>
-        <li>None</li>
-      </ul>
-    </li>
   {{ end }}
-</ul>
+</span>
