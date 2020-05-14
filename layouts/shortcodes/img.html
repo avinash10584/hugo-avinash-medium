@@ -2,9 +2,8 @@
 {{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get 0)) }}
 {{ $styles := (.Get 1) }}
 
-{{ .Scratch.Set "image" $original }}
 
-{{ $image := .Scratch.Get "image" }}
+{{ $image := $original }}
 
 {{- if eq (.Get 3) "" -}}
 {{- else -}}
