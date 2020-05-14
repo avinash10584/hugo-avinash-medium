@@ -1,66 +1,73 @@
-
 {{ $maxwidth := .Page.Params.maxwidth | default "740" }}
 {{ $original := .Page.Resources.GetMatch (printf "*%s*" (.Get 0)) }}
 {{ $styles := (.Get 1) }}
 
-{{ if eq (.Get 2) ""}}
-    {{ .Scratch.Set "image" $original }}
-{{ else }}
+{{ .Scratch.Set "image" $original }}
+
+{{ $image := .Scratch.Get "image" }}
+
+{{- if eq (.Get 3) "" -}}
+{{- else -}}
+    {{ $filters := ( split (.Get 3) "|" ) }}
+    
+    {{- range $i, $filter := $filters -}}
+        {{ $filterData:= ( split $filter ":" ) }}
+        {{ $item := (index $filterData 0) }}
+        {{ $filterValues := (split (index $filterData 1) "," ) }}
+
+        {{ if eq $item "GausianBlur"}}
+            {{ $image = $image.Filter (images.GaussianBlur (index $filterValues 0)) }}
+        {{ else if eq $item "Hue"}}
+            {{ $image = $image.Filter (images.Hue (index $filterValues 0)) }}
+        {{ else if eq $item "Invert"}}
+            {{ $image = $image.Filter (images.Invert (index $filterValues 0)) }}
+        {{ else if eq $item "Sepia"}}
+            {{ $image = $image.Filter (images.Sepia (index $filterValues 0)) }}
+        {{ else if eq $item "Saturation"}}
+            {{ $image = $image.Filter (images.Saturation (index $filterValues 0)) }}
+        {{ else if eq $item "Gamma"}}
+            {{ $image = $image.Filter (images.Gamma (index $filterValues 0)) }}
+        {{ else if eq $item "Brightness"}}
+            {{ $image = $image.Filter (images.Brightness (index $filterValues 0)) }}
+        {{ else if eq $item "Pixelate"}}
+            {{ $image = $image.Filter (images.Pixelate (index $filterValues 0)) }}
+        {{ else if eq $item "Colorize"}}
+            {{ $image = $image.Filter (images.Colorize (index $filterValues 0) (index $filterValues 1) (index $filterValues 2)) }}
+        {{ else if eq $item "Contrast"}}
+            {{ $image = $image.Filter (images.Contrast (index $filterValues 0)) }}
+        {{ else if eq $item "Sigmoid"}}
+            {{ $image = $image.Filter (images.Sigmoid (index $filterValues 0)) }}
+        {{ else if eq $item "Grayscale"}}
+            {{ $image = $image.Filter (images.Grayscale) }}
+        {{ else if eq $item "ColorBalance"}}
+            {{ $image = $image.Filter (images.ColorBalance (index $filterValues 0) (index $filterValues 1) (index $filterValues 2)) }}
+        {{ end }}
+    {{ end }}
+{{- end -}}
+
+
     {{ $resizeCmd := ( split (.Get 2) ":" ) }}
     {{ $command := (index $resizeCmd 0)  }}
     {{ $options := (index $resizeCmd 1) }}
-    {{ $optionValues := (split $options "," ) }}   
-    {{ $dimensions := (split (index $optionValues 0) "x" ) }}
+
+    {{ $dimensions := (split $options "x" ) }}
     {{ $dimensionsX := (index $dimensions 0) | default $maxwidth }}
-    {{ $filloptions := (printf "%s%s%s%s" $dimensionsX "x" (index $dimensions 1) (index $optionValues 1)) }}
+    {{ $dimensionsY := (index $dimensions 1) }}
 
     {{ if eq $command "Fit"}}
-        {{ .Scratch.Set "image" ($original.Fit $filloptions) }}
+        {{ .Scratch.Set "image" ($image.Fit $options) }}
     {{ else if eq $command "Resize"}}
-        {{ .Scratch.Set "image" ($original.Resize $filloptions) }}
+        {{ .Scratch.Set "image" ($image.Resize $options) }}
     {{ else if eq $command "Fill"}}
-        {{ .Scratch.Set "image" ($original.Fill $filloptions) }}
+        {{ .Scratch.Set "image" ($image.Fill $options) }}
     {{ else }}
-        {{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+        {{ errorf "Invalid format command for image" }}
     {{ end }}
-{{ end }}
-{{ $image := .Scratch.Get "image" }}
 
-{{ if eq (.Get 3) ""}}
-{{ else }}
-    {{ $filters := ( split (.Get 3) "|" ) }}
-    {{- range $i, $filter := $filters -}}
-    {{ $filterData:= ( split $filter ":" ) }}
-    {{ $item := (index $filterData 0) }}
-    {{ $filterValues := (split (index $filterData 1) "," ) }}
-    {{ if eq $item "GausianBlur"}}
-        {{ $image = $image.Filter (images.GaussianBlur (index $filterValues 0)) }}
-    {{ else if eq $item "Hue"}}
-        {{ $image = $image.Filter (images.Hue (index $filterValues 0)) }} 
-    {{ else if eq $item "Invert"}}
-        {{ $image = $image.Filter (images.Invert (index $filterValues 0)) }} 
-    {{ else if eq $item "Sepia"}}
-        {{ $image = $image.Filter (images.Sepia (index $filterValues 0)) }} 
-    {{ else if eq $item "Saturation"}}
-        {{ $image = $image.Filter (images.Saturation (index $filterValues 0)) }} 
-    {{ else if eq $item "Gamma"}}
-        {{ $image = $image.Filter (images.Gamma (index $filterValues 0)) }} 
-    {{ else if eq $item "Brightness"}}
-        {{ $image = $image.Filter (images.Brightness (index $filterValues 0)) }} 
-    {{ else if eq $item "Pixelate"}}
-        {{ $image = $image.Filter (images.Pixelate (index $filterValues 0)) }} 
-    {{ else if eq $item "Colorize"}}
-        {{ $image = $image.Filter (images.Colorize (index $filterValues 0) (index $filterValues 1) (index $filterValues 2)) }} 
-    {{ else if eq $item "Contrast"}}
-        {{ $image = $image.Filter (images.Contrast (index $filterValues 0)) }} 
-    {{ else if eq $item "Sigmoid"}}
-        {{ $image = $image.Filter (images.Sigmoid (index $filterValues 0)) }} 
-    {{ else if eq $item "Grayscale"}}
-        {{ $image = $image.Filter (images.Grayscale) }}    
-    {{ else if eq $item "ColorBalance"}}
-        {{ $image = $image.Filter (images.ColorBalance (index $filterValues 0) (index $filterValues 1) (index $filterValues 2)) }} 
-    {{ end }}
-{{ end }}
-{{- end -}}
-
-<img style="{{ $styles }}" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}">
+    {{ $image := .Scratch.Get "image" }}
+    <div class="imageDiv" style="
+    width:{{ $dimensionsX }}px;height:{{ $dimensionsY }}px; 
+    background: url({{ $image.RelPermalink }}); 
+    background-size:cover;
+    {{ $styles }}">
+</div>

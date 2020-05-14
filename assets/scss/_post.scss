@@ -2,17 +2,24 @@
   background: #fff;
   margin: 0 auto;
   font-size: 1.1rem;
-  max-width: 52em;
-  line-height: 1.84;
+  max-width: 720px;
   color: rgba(0, 0, 0, .8);
   padding-top: 0.7em;
 
   &.content-list {
-    max-width: 40em;
+    max-width: 600px;
+  }
+
+  &.content-single {
+    margin: 0 60px;
   }
 
   &:not(:first-of-type) {
     padding-top: 2.5em;
+  }
+
+  .imageDiv {
+    margin: 2em 0;
   }
 
   >header {
@@ -34,10 +41,11 @@
       display: block;
 
       &.header-list {
-        width: 95%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        h5 {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
       }
 
       &.header-single {
@@ -138,6 +146,12 @@
   .content {
     font-family: $font-family__post;
     margin-top: 1.5em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    .highlight {
+      margin: 1em 0;
+    }
   }
 
   >footer {
