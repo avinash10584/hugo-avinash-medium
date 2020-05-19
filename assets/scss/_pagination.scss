@@ -1,25 +1,22 @@
 /* Pagination */
 
 .pagination {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
     margin: 1.5em auto;
     padding: 1em;
-    max-width: 55em;
-  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
     .button {
       margin: 1em;
-      width: 50%;
-  
-      @include for-tablet-up {}
+      width: 40%;
   
       .previous,
       .next {
         div {
           display: none;
   
-          @include for-tablet-up {
+          @include for-laptop-up {
             display: block;
             overflow: hidden;
             text-overflow: ellipsis;
