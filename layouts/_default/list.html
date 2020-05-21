@@ -8,10 +8,15 @@
       <main id="site-main">
        
     {{ range .Paginator.Pages }}
-    {{ .Render "li" }}
+    <article class="post content-list">
+      {{ .Render "featured" }}
+      {{ .Render "header-list" }}
+    </article>
   {{ end }}
         {{ partial "pagination" . }}
       </main>
+      
+      {{ partial "site-sidebar" . }}
       {{ partial "scripts" . }}
     </div>
     {{ partial "site-footer" . }}

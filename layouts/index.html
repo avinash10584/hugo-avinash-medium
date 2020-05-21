@@ -7,7 +7,10 @@
     <div id="wrapper">
       <main id="site-main">
         {{ range .Paginator.Pages }}
-          {{ .Render "content-list" }}
+        <article class="post content-list">
+          {{ .Render "featured" }}
+          {{ .Render "header-list" }}
+        </article>
         {{ end }}
         {{ partial "pagination" . }}
       </main>

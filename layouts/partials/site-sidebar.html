@@ -1,74 +1,11 @@
 <section id="site-sidebar">
-  {{ if gt .Site.Params.sidebar.postAmount 0 }}
-    <section id="recommended">
-      <header>
-        <h1>
-          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"></path></svg>
-          {{ i18n "recommended" }}
-        </h1>
-      </header>
-      {{ range first (.Site.Params.sidebar.postAmount | default 5) (.Paginator.Pages)}}
-      <article class="mini-post">
-        <section>
-          {{ .Render "featured" }}
-        </section>
-        <header>
-          <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
-          <div class="meta-date-reading-time">
-            <time class="published" datetime="{{ .Date }}">
-              {{ default (i18n "date_format") | .Date.Format }}
-            </time>
-            {{ if .Site.Params.ReadingTime }}
-              <span> · {{ i18n "postreadingtime" .ReadingTime }}</span>
-            {{ end }}
-          </span>
-        </div>  
-        </header>
-      </article>
-      {{ end }}
-      {{ if ge (len (.Paginator.Pages)) (.Site.Params.sidebar.postAmount | default 5) }}
-        <footer>
-          <a href="{{ with .Site.Params.viewMorePostsLink }}{{ . | relLangURL }}{{ else }}{{ "post" | relLangURL }}{{ end }}" class="button">{{ i18n "see_more" }}</a>
-        </footer>
-      {{ end }}
-    </section>
-  {{ end }}
+  
+  {{ partial "widgets/recommended" . }}
 
-  {{ if .Site.Params.sidebar.categories }}
-    {{ if ne ($.Scratch.Get "showCategories") false }}
-      <section id="categories">
-        <header>
-          <h1><a href="{{ "categories" | relLangURL }}">{{ i18n "categories" }}</a></h1>
-        </header>
-        <ul>
-          {{ if .Site.Params.sidebar.categoriesByCount }}
-            {{ $.Scratch.Set "categories" .Site.Taxonomies.categories.ByCount }}
-          {{ else }}
-            {{ $.Scratch.Set "categories" .Site.Taxonomies.categories.Alphabetical }}
-          {{ end }}
-          {{ range $key, $value := $.Scratch.Get "categories" }}
-          <li>
-            {{ if ne $value.Name "" }}
-              <a href="{{ printf "%s/%s" "categories" $value.Name | urlize | relLangURL }}/">{{ $value.Name }}<span class="count">{{ $value.Count }}</span></a>
-            {{ else }}
-              {{ i18n "uncategorized" }}<span class="count">{{ $value.Count }}</span>
-            {{ end }}
-          {{ end }}
-          </li>
-        </ul>
-      </section>
-    {{ end }}
-  {{ end }}
+  {{ partial "widgets/taxonomy_cloud" . }}
 
-  {{ if .Site.Params.sidebar.about }}
-    <section id="mini-bio">
-      <header>
-        <h1>{{ i18n "about" }}</h1>
-      </header>
-      <p>{{ .Site.Params.sidebar.about | safeHTML }}</p>
-      <footer>
-        <a href="{{ "about" | relLangURL }}" class="button">{{ i18n "learn_more" }}</a>
-      </footer>
-    </section>
-  {{ end }}
+  {{ partial "widgets/categories" . }}
+
+  {{ partial "widgets/about" . }}
+  
 </section>

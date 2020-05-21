@@ -6,7 +6,19 @@
     {{ partial "site-header" . }}
     <div id="wrapper">
       <main id="site-main">
-        {{ .Render "content-single"}}
+        {{- .Scratch.Set "title-h2" "true" -}}
+        <article class="post content-single">
+          {{ .Render "header-single" }}
+          <div class="content">
+            {{ .Content }}
+          </div>
+          <footer>
+            {{ .Render "stats" }}
+            {{ partial "plugins" . }}
+          </footer>
+        </article>
+        {{ .Render "comments" }}
+        {{ .Render "pagination" }}
       </main>
       {{ partial "scripts" . }}
     </div>
