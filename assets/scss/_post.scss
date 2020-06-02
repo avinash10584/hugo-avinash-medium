@@ -11,7 +11,7 @@
   }
 
   &.content-single {
-    margin: 0 60px;
+    margin: 0 2em;
   }
 
   &:not(:first-of-type) {
@@ -147,6 +147,11 @@
 
     .highlight {
       margin: 1em 0;
+      table,
+      td,
+      th {
+        border:none;
+      }
     }
 
     li {
@@ -160,6 +165,7 @@
   
       a {
         text-decoration: underline;
+        word-break: break-all;
       }
   }
 
