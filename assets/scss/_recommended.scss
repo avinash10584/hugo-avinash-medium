@@ -37,6 +37,10 @@
       header {
         position: relative;
   
+        h1 {
+          display: grid;
+        }
+        
         @include for-laptop-up {
           border-top: solid 1px rgba(160, 160, 160, 0.3);
         }

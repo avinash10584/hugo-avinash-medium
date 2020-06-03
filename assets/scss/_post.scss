@@ -6,6 +6,12 @@
   color: rgba(0, 0, 0, .8);
   padding-top: 0.7em;
 
+  
+
+.gist .blob-code-inner {
+  white-space: normal;
+}
+
   &.content-list {
     max-width: 600px;
   }
@@ -36,14 +42,6 @@
       font-size: 1.1em;
       display: block;
 
-      &.header-list {
-        h5 {
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-        }
-      }
-
       &.header-single {
         margin: 0 0 1em;
         a {
@@ -52,15 +50,18 @@
       }
     }
 
+    .description-wrapper {
+      display: grid;
+      
     .description {
 
       font-size: 15px;
-      width: 85%;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
       opacity: 0.6;
       margin: 0.3em 0;
+    }
     }
 
     .meta-wrapper {

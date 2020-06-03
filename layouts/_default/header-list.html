@@ -18,7 +18,7 @@
     <h5><a href="{{ .RelPermalink }}">{{ .Title }}</a></h5>
   </div>
   {{ with .Description }}
-    <span class="description">{{ . }}</span>
+    <span class="description-wrapper"><span class="description">{{ . }}</span></span>
   {{ end }}
   <div class="meta-wrapper">
   <div class="meta-date-reading-time">
