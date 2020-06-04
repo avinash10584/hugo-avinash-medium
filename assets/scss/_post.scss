@@ -130,12 +130,17 @@
       }
 
       img {
+        transition: opacity 400ms ease 0ms;
+        width: 100%;
+        
+        &:hover {
         -webkit-transition: -webkit-transform 0.2s ease-out;
         -moz-transition: -moz-transform 0.2s ease-out;
         -ms-transition: -ms-transform 0.2s ease-out;
         -o-transition: -ms-transform 0.2s ease-out;
         transition: transform 0.2s ease-out;
-        width: 100%;
+        
+        }
       }
     }
   }
@@ -162,6 +167,7 @@
     img {
       margin: 1.5em 0;
       border-radius: 2px;
+      transition: opacity 400ms ease 0ms;
       }
   
       a {
