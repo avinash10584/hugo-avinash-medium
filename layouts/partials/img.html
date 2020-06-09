@@ -1,0 +1,36 @@
+
+
+{{ $tinyw := default "500x" }}
+{{ $smallw := default "800x" }}
+{{ $mediumw := default "1200x" }}
+{{ $largew := default "1500x" }}
+
+
+{{/* add the processed images to the scratch */}}
+
+{{ $tiny := (.Resize $tinyw) }}
+{{ $small := (.Resize $smallw) }}
+{{ $medium := (.Resize $mediumw) }}
+{{ $large := (.Resize $largew)  }}
+
+{{/* only use images smaller than or equal to the src (original) image size, as Hugo will upscale small images */}}
+{{/* set the sizes attribute for ex. (min-width: 35em) 1200px, 100vw in shortcode */}}
+
+<img style="width: 100%;max-width:{{ .Width}}px"
+  srcset='
+  {{ if ge .Width "500" }}
+    {{ with $tiny.RelPermalink }}{{.}} 500w{{ end }}
+  {{ end }}
+  {{ if ge .Width "800" }}
+    {{ with $small.RelPermalink }}, {{.}} 800w{{ end }}
+  {{ end }}
+  {{ if ge .Width "1200" }}
+    {{ with $medium.RelPermalink }}, {{.}} 1200w{{ end }}
+  {{ end }}
+  {{ if ge .Width "1500" }}
+    {{ with $large.RelPermalink }}, {{.}} 1500w {{ end }}
+  {{ end }}'
+    src="{{ .RelPermalink }}">
+    
+
+

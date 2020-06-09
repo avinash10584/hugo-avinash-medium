@@ -49,9 +49,9 @@
   
     &:hover {
       border-bottom-color: transparent;
-      color: $accent-color;
+      color: $accent-color-dark;
        > svg {
-        fill: $accent-color;
+        fill: $accent-color-dark;
        }
     }
   }
@@ -120,7 +120,7 @@
     width: 100%;
   
     &:hover {
-      border-color: $accent-color;
+      border-color: $accent-color-dark;
       -webkit-transition: border-color 0.3s ease-in-out;
       -moz-transition: border-color 0.3s ease-in-out;
       -ms-transition: border-color 0.3s ease-in-out;
@@ -130,7 +130,7 @@
   
     &:focus,
     &:active {
-      border: solid 1px $accent-color;
+      border: solid 1px $accent-color-dark;
     }
   }
   

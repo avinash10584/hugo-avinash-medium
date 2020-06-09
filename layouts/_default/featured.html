@@ -3,6 +3,6 @@
 <a href="{{ $.RelPermalink }}" class="image featured">
 {{$images := .Resources.ByType "image"}}
 {{with $images.GetMatch "*cover*" }}
-    <img src="{{ .RelPermalink }}">
+    {{ partial "img.html" . }} 
 {{end}}   
 </a>
